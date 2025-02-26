@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Sheets Clone</title>
+    <title>Responsive Spreadsheet</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
     <div class="toolbar">
         <button onclick="formatText('bold')">Bold</button>
         <button onclick="formatText('italic')">Italic</button>
-        <input type="color" id="colorPicker" onchange="changeTextColor(this.value)">
-        <input type="number" id="fontSize" min="10" max="36" value="14" onchange="changeFontSize(this.value)">
-        <button onclick="saveSheet()">💾 Save</button>
-        <button onclick="loadSheet()">📂 Load</button>
+        <input type="color" onchange="changeTextColor(this.value)">
+        <input type="number" min="1" max="7" value="3" onchange="changeFontSize(this.value)">
+        <button onclick="saveSheet()">Save</button>
+        <button onclick="loadSheet()">Load</button>
     </div>
-    <div class="formula-bar">
-        <input type="text" id="formulaBar" placeholder="Enter formula (e.g. =SUM(A1:A5))">
+
+    <input type="text" id="formula-bar" placeholder="Enter formula (e.g. =SUM(A1:A2))">
+
+    <div id="spreadsheet-container">
+        <div id="spreadsheet"></div>
     </div>
-    <div class="spreadsheet" id="spreadsheet"></div>
+
     <script src="script.js"></script>
 </body>
+
 </html>

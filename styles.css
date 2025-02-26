@@ -1,34 +1,68 @@
-body {
-    font-family: Arial, sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
-    padding: 10px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding: 20px;
     text-align: center;
 }
 
 .toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     margin-bottom: 10px;
 }
 
-button {
-    padding: 5px 10px;
-    margin: 5px;
-    cursor: pointer;
+.toolbar button, .toolbar input {
+    padding: 5px;
 }
 
-.spreadsheet {
-    display: grid;
-    grid-template-columns: repeat(10, 100px);
-    gap: 1px;
-    background: #ccc;
+#formula-bar {
+    width: 50%;
     padding: 5px;
-    overflow: auto;
+    margin-bottom: 10px;
+}
+
+#spreadsheet-container {
+    overflow-x: auto;
+}
+
+#spreadsheet {
+    display: grid;
+    grid-template-columns: 40px repeat(10, 1fr);
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #ccc;
+}
+
+.header-cell {
+    background: #ddd;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #aaa;
 }
 
 .cell {
-    width: 100px;
-    height: 30px;
-    background: white;
-    border: 1px solid #999;
+    border: 1px solid #ddd;
+    padding: 5px;
+    min-width: 50px;
+    min-height: 30px;
     text-align: center;
-    cursor: pointer;
+    outline: none;
+}
+
+.cell:focus {
+    background: #ffffcc;
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+    #spreadsheet {
+        grid-template-columns: 30px repeat(10, minmax(40px, 1fr));
+    }
 }
